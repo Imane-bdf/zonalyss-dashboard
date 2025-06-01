@@ -1,31 +1,36 @@
-
 import streamlit as st
 import pandas as pd
 
-st.title("🏙️ Zonalyss – Commune Investment Scores")
-st.caption("Luxembourg pilot version – Rental ROI + Zone Quality")
+st.set_page_config(page_title="Zonalyss Dashboard", layout="wide")
 
+# Load data
 @st.cache_data
 def load_data():
-    return pd.read_csv("final_scores_with_tags.csv")
+    url = "https://raw.githubusercontent.com/your-username/zonalyss-dashboard/main/final_scores_with_tags.csv"
+    return pd.read_csv(url)
 
 df = load_data()
 
-st.sidebar.header("🔎 Filter Zones")
-min_roi = st.sidebar.slider("Minimum Rental ROI %", 0.0, 15.0, 5.0, step=0.5)
-selected_tags = st.sidebar.multiselect("Zone Quality", df['zone_quality_tag'].unique(), default=['High', 'Medium'])
+st.title("📊 Zonalyss - Commune Investment Dashboard")
 
-filtered_df = df[
-    (df['rental_roi_percent'] >= min_roi) &
-    (df['zone_quality_tag'].isin(selected_tags))
-]
+# Preview raw data
+st.subheader("🧾 Raw CSV Preview")
+st.dataframe(df.head(20))
 
-st.subheader("📊 Filtered Commune Scores")
-st.dataframe(filtered_df[['commune', 'rental_roi_percent', 'zone_quality_tag', 'zonalyss_score']])
+# Debug info
+st.write("🔍 Available Zone Quality Tags:", df['zone_quality_tag'].unique())
+st.write("🔍 ROI Column Type:", df['rental_roi_percent'].dtype)
 
-st.download_button(
-    label="📥 Download Results as CSV",
-    data=filtered_df.to_csv(index=False).encode('utf-8'),
-    file_name='zonalyss_filtered_communes.csv',
-    mime='text/csv'
-)
+# Filter options
+min_roi = st.slider("Minimum Rental ROI (%)", 0, 100, 5)
+selected_tags = st.multiselect("Zone Quality", options=df['zone_quality_tag'].dropna().unique(), default=['High', 'Medium'])
+
+# Safe filtering
+filtered_df = df.copy()
+filtered_df['rental_roi_percent'] = pd.to_numeric(filtered_df['rental_roi_percent'], errors='coerce')
+filtered_df = filtered_df[filtered_df['rental_roi_percent'] >= min_roi]
+filtered_df = filtered_df[filtered_df['zone_quality_tag'].isin(selected_tags)]
+
+# Display filtered results
+st.subheader("📍 Filtered Zones")
+st.dataframe(filtered_df.sort_values(by='zonalyss_score', ascending=False).reset_index(drop=True))
