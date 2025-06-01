@@ -1,4 +1,3 @@
-
 import streamlit as st
 import pandas as pd
 
@@ -31,7 +30,7 @@ st.write("🧭 Available Zone Tags in Data:", valid_tags)
 
 default_tags = [tag for tag in ['High', 'Medium', 'Low'] if tag in valid_tags]
 if not default_tags:
-    default_tags = valid_tags[:2]  # fallback if nothing matches
+    default_tags = valid_tags[:2] # fallback if nothing matches
 
 selected_tags = st.sidebar.multiselect("Zone Quality", options=valid_tags, default=default_tags)
 st.write("✅ Selected Tags:", selected_tags)
