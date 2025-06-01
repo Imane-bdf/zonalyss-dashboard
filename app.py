@@ -43,7 +43,7 @@ filtered_df = filtered_df[filtered_df['zone_quality_tag'].isin(selected_tags)]
 # Display filtered results
 st.subheader("📍 Filtered Zones")
 st.dataframe(filtered_df.sort_values(by='zonalyss_score', ascending=False).reset_index(drop=True))
-st.write('Filtred rows count:' len(filtred_df))
+st.write('Filtred rows count:', len(filtred_df))
 
 # Download button
 st.download_button(
