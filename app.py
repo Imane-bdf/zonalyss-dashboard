@@ -26,7 +26,7 @@ st.write("🔍 ROI Column Type:", df['rental_roi_percent'].dtype)
 
 # Filter sidebar
 st.sidebar.header("📊 Filters")
-min_roi = st.sidebar.slider("Minimum Rental ROI (%)", 0, 100, 5)
+min_roi = st.sidebar.slider("Minimum Rental ROI (%)", -100, 100, -70)
 
 # Zone tags filter setup
 valid_tags = df['zone_quality_tag'].dropna()
