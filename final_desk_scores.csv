@@ -1,6 +1,0 @@
-commune,land_price_m2,office_price_m2,construction_cost_m2,avg_office_size_m2,rent_m2,occupancy_rate,resale_growth_rate,rent_growth_rate,buy_rental_roi,buy_resale_roi,build_rental_roi,build_resale_roi,zonalyss_score_desk
-Kirchberg,2000,6500,2500,150,30,0.9,0.035,0.025,-50.15,41.06,-28.0,41.06,0.99
-Cloche d'Or,1800,6200,2400,130,28,0.85,0.032,0.023,-53.94,37.02,-32.0,37.02,-2.97
-Gare,1700,5800,2300,120,26,0.8,0.03,0.022,-56.97,34.39,-37.6,34.39,-6.45
-Hamilius,1600,5500,2200,140,25,0.82,0.028,0.021,-55.27,31.8,-35.26,31.8,-6.73
-Belval,1500,5000,2100,110,22,0.78,0.027,0.02,-58.82,30.53,-42.8,30.53,-10.14
