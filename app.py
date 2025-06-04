@@ -24,7 +24,10 @@ def load_data():
 
 df = load_data()
 
-st.write('Loaded columns:', df.columns.tolist())
+#debug INFO
+st.write('Selected property type:', property_type)
+st.write("score column in use:', score_column)
+         st.write('Available column in file:', df.columns.tolist())
 
 # --- Filter options ---
 st.subheader("🎯 Filter Zones")
