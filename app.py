@@ -24,6 +24,8 @@ def load_data():
 
 df = load_data()
 
+st.write('Loaded columns:', df.columns.tolist())
+
 # --- Filter options ---
 st.subheader("🎯 Filter Zones")
 min_score = st.slider("Minimum Zonalyss Score", min_value=0, max_value=100, value=50)
