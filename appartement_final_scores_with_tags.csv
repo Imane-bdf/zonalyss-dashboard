@@ -1,4 +1,4 @@
-commune,price_per_m2,year,rental_roi_percent,zonalyss_score,avg_income,school_index,transport_index,zone_quality_score,zone_quality_tag,zonalyss_score_appatment
+commune,price_per_m2,year,rental_roi_percent,zonalyss_score,avg_income,school_index,transport_index,zone_quality_score,zone_quality_tag,zonalyss_score_appartment
 Beggen,8972.66,2024,-66.57,0.758794588,0.980451128,0.101902174,0.49197861,0.524777304,Low,0.91480611
 Hamm,9150,2024,-67.21,0.740995887,0,0.610054348,1,0.536684783,Medium,0.87720329
 Eich,10359.35,2024,-71.04,0.646916923,0.890225564,0.508152174,0.518716578,0.639031438,Medium,0.652173913
