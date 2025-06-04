@@ -1,0 +1,6 @@
+commune,land_price_m2,house_price_m2,construction_cost_m2,avg_house_size_m2,rent_m2,resale_growth_rate,rent_growth_rate,buy_rental_roi,buy_resale_roi,build_rental_roi,build_resale_roi,zonalyss_score_house
+Belair,1600,11500,3000,130,24,0.03,0.02,-74.96,34.39,-37.39,34.39,-10.89
+Bonnevoie,1400,9800,2800,125,21,0.025,0.018,-74.29,28.01,-40.0,28.01,-14.57
+Cents,1350,9200,2700,120,20,0.024,0.017,-73.91,26.77,-40.74,26.77,-15.28
+Limpertsberg,1800,12500,3100,140,25,0.031,0.021,-76.0,35.7,-38.78,35.7,-10.84
+Kirchberg,1700,12000,3050,135,23,0.029,0.019,-77.0,33.09,-41.89,33.09,-13.18
