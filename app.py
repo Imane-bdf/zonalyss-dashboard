@@ -10,7 +10,7 @@ property_type = st.selectbox("Select Property Type", ["Apartment", "House", "Des
 # --- File selection logic ---
 if property_type == "Apartment":
     file_url = "https://raw.githubusercontent.com/Imane-bdf/zonalyss-dashboard/main/appartement_final_score_with_tags.csv"
-    score_column = "zonalyss_score_appatment"
+    score_column = "zonalyss_score_appartment"
 elif property_type == "House":
     file_url = "https://raw.githubusercontent.com/Imane-bdf/zonalyss-dashboard/main/final_house_scores.csv"
     score_column = "zonalyss_score_house"
