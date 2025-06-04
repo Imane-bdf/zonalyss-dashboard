@@ -5,10 +5,10 @@ import pandas as pd
 st.title("🏢 Zonalyss – Commune Investment Dashboard")
 
 # --- Property Type Selection ---
-property_type = st.selectbox("Select Property Type", ["Apartment", "House", "Desk"])
+property_type = st.selectbox("Select Property Type", ["Appartment", "House", "Desk"])
 
 # --- File selection logic ---
-if property_type == "Apartment":
+if property_type == "Appartment":
     file_url = "https://raw.githubusercontent.com/Imane-bdf/zonalyss-dashboard/main/appartement_final_score_with_tags.csv"
     score_column = "zonalyss_score_appartment"
 elif property_type == "House":
