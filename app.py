@@ -1,13 +1,25 @@
-# Load all scores
-a_df = pd.read_csv("/content/drive/MyDrive/Zonalyss_Project/Output/final_apartment_scores.csv")
-h_df = pd.read_csv("/content/drive/MyDrive/Zonalyss_Project/Output/final_house_scores.csv")
-d_df = pd.read_csv("/content/drive/MyDrive/Zonalyss_Project/Output/final_desk_scores.csv")
+import streamlit as st
+import pandas as pd
 
-# Keep commune and score only
-a_df = a_df[['commune', 'zonalyss_score_apartment']]
-h_df = h_df[['commune', 'zonalyss_score_house']]
-d_df = d_df[['commune', 'zonalyss_score_desk']]
+# --- Title ---
+st.title("🏢 Zonalyss – Commune Investment Dashboard")
 
-# Merge on commune
-merged = a_df.merge(h_df, on="commune", how="outer").merge(d_df, on="commune", how="outer")
-merged.sort_values("commune").reset_index(drop=True)
+# --- Property Type Selection ---
+property_type = st.selectbox("Select Property Type", ["Apartment", "House", "Desk"])
+
+# --- File selection logic ---
+if property_type == "Apartment":
+    file_url = "https://raw.githubusercontent.com/Imane-bdf/zonalyss-dashboard/main/appartement_final_score_with_tags.csv"
+    score_column = "zonalyss_score"
+elif property_type == "House":
+    file_url = "https://raw.githubusercontent.com/Imane-bdf/zonalyss-dashboard/main/final_house_scores.csv"
+    score_column = "zonalyss_score_house"
+else:
+    file_url = "https://raw.githubusercontent.com/Imane-bdf/zonalyss-dashboard/main/final_desk_scores.csv"
+    score_column = "zonalyss_score_desk"
+
+@st.cache_data
+def load_data():
+    return pd.read_csv(file_url)
+
+df = load_data()
