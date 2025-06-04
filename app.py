@@ -27,7 +27,7 @@ df = load_data()
 #debug INFO
 st.write('Selected property type:', property_type)
 st.write('score column in use:', score_column)
-         st.write('Available column in file:', df.columns.tolist())
+st.write('Available column in file:', df.columns.tolist())
 
 # --- Filter options ---
 st.subheader("🎯 Filter Zones")
