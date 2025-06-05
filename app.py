@@ -1,4 +1,4 @@
-mport streamlit as st
+import streamlit as st
 import pandas as pd
 
 st.title("🏘️ Zonalyss - Commune Investment Dashboard")
