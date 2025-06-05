@@ -9,13 +9,13 @@ property_type = st.selectbox("Select Property Type", ["Appartment", "House", "De
 
 # --- File selection logic ---
 if property_type == "Appartment":
-    file_url = "https://raw.githubusercontent.com/Imane-bdf/zonalyss-dashboard/main/appartement_final_score_with_tags.csv"
+    file_url = "https://raw.githubusercontent.com/Imane-bdf/zonalyss-dashboard/main/appartement_score.csv"
     score_column = "zonalyss_score_appartment"
 elif property_type == "House":
     file_url = "https://raw.githubusercontent.com/Imane-bdf/zonalyss-dashboard/main/final_house_scores.csv"
     score_column = "zonalyss_score_house"
 else:
-    file_url = "https://raw.githubusercontent.com/Imane-bdf/zonalyss-dashboard/main/final_desk_scores.csv"
+    file_url = "https://raw.githubusercontent.com/Imane-bdf/zonalyss-dashboard/main/desk_scores.csv"
     score_column = "zonalyss_score_desk"
 
 @st.cache_data
