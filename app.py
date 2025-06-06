@@ -1,38 +1,36 @@
 import streamlit as st
 import pandas as pd
+import plotly.express as px
 
-st.title("🏘️ Zonalyss - Commune Investment Dashboard")
+st.set_page_config(page_title="Zonalyss Score Map", layout="wide")
 
-# Step 1: Property type selection
-property_type = st.selectbox("Select Property Type", ["Appartment", "House", "Desk"])
+# Title
+st.title("Zonalyss Investment Score Dashboard")
 
-# Step 2: Set file path and score column based on selection
-if property_type == "Appartment":
-    file_url = "https://raw.githubusercontent.com/Imane-bdf/zonalyss-dashboard/main/appartement_scores.csv"
-    score_column = "zonalyss_score_appartment"
+# Sidebar property type selector
+property_type = st.sidebar.selectbox("Select property type", ["Apartment", "House", "Desk"])
+
+# Load the appropriate file and score column
+if property_type == "Apartment":
+    df = pd.read_csv("/content/drive/MyDrive/Zonalyss_Project/Output/appartement_scores.csv")
+    score_column = "zonalyss_score_apartment"
 elif property_type == "House":
-    file_url = "https://raw.githubusercontent.com/Imane-bdf/zonalyss-dashboard/main/house_scores.csv"
+    df = pd.read_csv("/content/drive/MyDrive/Zonalyss_Project/Output/house_scores.csv")
     score_column = "zonalyss_score_house"
 else:
-    file_url = "https://raw.githubusercontent.com/Imane-bdf/zonalyss-dashboard/main/desk_scores.csv"
+    df = pd.read_csv("/content/drive/MyDrive/Zonalyss_Project/Output/desk_scores.csv")
     score_column = "zonalyss_score_desk"
 
-# Step 3: Load data *after* user makes a selection
-@st.cache_data
-def load_data(url):
-    return pd.read_csv(url)
+# Filter out rows with missing score
+df = df[df[score_column].notna()]
 
-df = load_data(file_url)
+# Display the score table
+st.subheader("Commune Zonalyss Scores")
+st.dataframe(df[["commune", score_column]].sort_values(score_column, ascending=False).reset_index(drop=True))
 
-# Debugging helper
-st.write("Selected property type:", property_type)
-st.write("Score column in use:", score_column)
-st.write("Available columns:", df.columns.tolist())
-
-# Step 4: Filter zones by score
-if score_column in df.columns:
-    min_score = st.slider("Minimum Zonalyss Score", min_value=0, max_value=100, value=50)
-    df_filtered = df[df[score_column] >= min_score]
-    st.dataframe(df_filtered)
-else:
-    st.error(f"Score column '{score_column}' not found in file. Please check the file structure.")
+# Plot the scores
+fig = px.bar(df.sort_values(score_column, ascending=False),
+             x="commune", y=score_column,
+             labels={"commune": "Commune", score_column: "Zonalyss Score"},
+             title=f"{property_type} Zonalyss Score by Commune")
+st.plotly_chart(fig, use_container_width=True)
