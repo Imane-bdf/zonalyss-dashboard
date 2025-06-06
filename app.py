@@ -13,7 +13,7 @@ property_type = st.sidebar.selectbox("Select property type", ["Apartment", "Hous
 # Load the appropriate file and score column
 if property_type == "Apartment":
     df = pd.read_csv("https://raw.githubusercontent.com/Imane-bdf/zonalyss-dashboard/main/appartement_scores.csv")
-    score_column = "zonalyss_score_apartment"
+    score_column = "zonalyss_score_appartement"
 elif property_type == "House":
     df = pd.read_csv("https://raw.githubusercontent.com/Imane-bdf/zonalyss-dashboard/main/house_scores.csv")
     score_column = "zonalyss_score_house"
@@ -26,11 +26,10 @@ df = df[df[score_column].notna()]
 
 # Display the score table
 st.subheader("Commune Zonalyss Scores")
-st.dataframe(df[["commune", score_column]].sort_values(score_column, ascending=False).reset_index(drop=True))
+st.dataframe(df[["commune", score_column]])
 
-# Plot the scores
-fig = px.bar(df.sort_values(score_column, ascending=False),
-             x="commune", y=score_column,
-             labels={"commune": "Commune", score_column: "Zonalyss Score"},
-             title=f"{property_type} Zonalyss Score by Commune")
+# Plot the scores as a bar chart
+st.subheader(f"{property_type} Zonalyss Score by Commune")
+fig = px.bar(df.sort_values(score_column, ascending=False), x="commune", y=score_column,
+             labels={score_column: "Zonalyss Score"}, height=500)
 st.plotly_chart(fig, use_container_width=True)
