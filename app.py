@@ -12,13 +12,13 @@ property_type = st.sidebar.selectbox("Select property type", ["Apartment", "Hous
 
 # Load the appropriate file and score column
 if property_type == "Apartment":
-    df = pd.read_csv("/content/drive/MyDrive/Zonalyss_Project/Output/appartement_scores.csv")
+    df = pd.read_csv("https://raw.githubusercontent.com/Imane-bdf/zonalyss-dashboard/main/appartement_scores.csv")
     score_column = "zonalyss_score_apartment"
 elif property_type == "House":
-    df = pd.read_csv("/content/drive/MyDrive/Zonalyss_Project/Output/house_scores.csv")
+    df = pd.read_csv("https://raw.githubusercontent.com/Imane-bdf/zonalyss-dashboard/main/house_scores.csv")
     score_column = "zonalyss_score_house"
 else:
-    df = pd.read_csv("/content/drive/MyDrive/Zonalyss_Project/Output/desk_scores.csv")
+    df = pd.read_csv("https://raw.githubusercontent.com/Imane-bdf/zonalyss-dashboard/main/desk_scores.csv")
     score_column = "zonalyss_score_desk"
 
 # Filter out rows with missing score
