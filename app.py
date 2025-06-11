@@ -15,11 +15,11 @@ data_sources = {
         "score_column": "zonalyss_score_appartment"
     },
     "House": {
-        "url": "https://raw.githubusercontent.com/Imane-bdf/zonalyss-dashboard/main/house_scores.csv",
+        "url": "https://raw.githubusercontent.com/Imane-bdf/zonalyss-dashboard/main/final_house_scores.csv",
         "score_column": "zonalyss_score_house"
     },
     "Desk": {
-        "url": "https://raw.githubusercontent.com/Imane-bdf/zonalyss-dashboard/main/desk_scores.csv",
+        "url": "https://raw.githubusercontent.com/Imane-bdf/zonalyss-dashboard/main/final_desk_scores.csv",
         "score_column": "zonalyss_score_desk"
     }
 }
