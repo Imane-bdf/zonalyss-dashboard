@@ -19,7 +19,7 @@ data_sources = {
         "score_column": "zonalyss_score_house"
     },
     "Desk": {
-        "url": "https://raw.githubusercontent.com/Imane-bdf/zonalyss-dashboard/main/desk_scores_simulated.csv.csv",
+        "url": "https://raw.githubusercontent.com/Imane-bdf/zonalyss-dashboard/main/desk_scores_simulated.csv",
         "score_column": "zonalyss_score_desk"
     }
 }
