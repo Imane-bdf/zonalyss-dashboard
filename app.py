@@ -11,15 +11,15 @@ property_type = st.sidebar.selectbox("Select property type", ["Apartment", "Hous
 # Mapping property type to data source and score column
 data_sources = {
     "Apartment": {
-        "url": "https://raw.githubusercontent.com/Imane-bdf/zonalyss-dashboard/main/appartement_scores.csv",
+        "url": "https://raw.githubusercontent.com/Imane-bdf/zonalyss-dashboard/main/appartement_scores_simulated.csv",
         "score_column": "zonalyss_score_appartment"
     },
     "House": {
-        "url": "https://raw.githubusercontent.com/Imane-bdf/zonalyss-dashboard/main/final_house_scores.csv",
+        "url": "https://raw.githubusercontent.com/Imane-bdf/zonalyss-dashboard/main/house_scores_simulated.csv",
         "score_column": "zonalyss_score_house"
     },
     "Desk": {
-        "url": "https://raw.githubusercontent.com/Imane-bdf/zonalyss-dashboard/main/final_desk_scores.csv",
+        "url": "https://raw.githubusercontent.com/Imane-bdf/zonalyss-dashboard/main/desk_scores_simulated.csv.csv",
         "score_column": "zonalyss_score_desk"
     }
 }
