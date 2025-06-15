@@ -58,7 +58,7 @@ fig = px.bar(df_sorted, x="commune", y=score_column,
 st.plotly_chart(fig)
 
 # Fetch GeoJSON for Luxembourg communes
-geojson_url = "https://raw.githubusercontent.com/plotly/datasets/master/luxembourg.geojson"
+geojson_url = "https://raw.githubusercontent.com/Imane-bdf/zonalyss-dashboard/main/luxembourg_communes.geojson"
 geo_data = requests.get(geojson_url).json()
 
 # Simulate a mapping (you will replace this when using real commune names)
