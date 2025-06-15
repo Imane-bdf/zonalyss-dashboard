@@ -53,3 +53,4 @@ df_sorted = df.sort_values(by=score_column, ascending=False)
 fig = px.bar(df_sorted, x="commune", y=score_column,
              title=f"{property_type} Zonalyss Scores by Commune",
              labels={score_column: "Zonalyss Score"})
+st.plotly_chart(fig)
