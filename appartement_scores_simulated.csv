@@ -1,4 +1,4 @@
-commune,land_price_m2,house_price_m2,construction_cost_m2,avg_house_size_m2,rent_m2,resale_growth_rate,rent_growth_rate,buy_rental_roi,buy_resale_roi,build_rental_roi,build_resale_roi,zonalyss_score_apartment
+commune,land_price_m2,house_price_m2,construction_cost_m2,avg_house_size_m2,rent_m2,resale_growth_rate,rent_growth_rate,buy_rental_roi,buy_resale_roi,build_rental_roi,build_resale_roi,zonalyss_score_appartment
 Commune_1,642,6067,2621,106,16.5,0.015,0.031,0.046,0.053,0.088,0.103,24.67
 Commune_2,527,8941,1630,131,25.85,0.022,0.024,0.069,0.066,0.039,0.085,72.65
 Commune_3,1277,4386,2694,68,23.5,0.059,0.034,0.027,0.06,0.09,0.083,99.18
