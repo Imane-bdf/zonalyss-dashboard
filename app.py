@@ -1,6 +1,8 @@
 import streamlit as st
 import pandas as pd
 import plotly.express as px
+import json
+import requests
 
 st.set_page_config(page_title="Zonalyss Score Map", layout="wide")
 st.title("Zonalyss Investment Score Dashboard")
@@ -54,3 +56,28 @@ fig = px.bar(df_sorted, x="commune", y=score_column,
              title=f"{property_type} Zonalyss Scores by Commune",
              labels={score_column: "Zonalyss Score"})
 st.plotly_chart(fig)
+
+# Fetch GeoJSON for Luxembourg communes
+geojson_url = "https://raw.githubusercontent.com/plotly/datasets/master/luxembourg.geojson"
+geo_data = requests.get(geojson_url).json()
+
+# Simulate a mapping (you will replace this when using real commune names)
+df["commune_id"] = df["commune"].str.replace("Commune_", "").astype(int)
+
+# Plot interactive map
+st.subheader(f"{property_type} Zonalyss Map")
+fig = px.choropleth_mapbox(
+    df,
+    geojson=geo_data,
+    locations="commune_id",
+    color=score_column,
+    color_continuous_scale="YlOrRd",
+    mapbox_style="carto-positron",
+    featureidkey="properties.commune_id", # Update this once you know the exact key in GeoJSON
+    zoom=8,
+    center={"lat": 49.815273, "lon": 6.129583}, # Center on Luxembourg
+    opacity=0.6,
+    labels={score_column: "Zonalyss Score"},
+)
+
+st.plotly_chart(fig, use_container_width=True)
