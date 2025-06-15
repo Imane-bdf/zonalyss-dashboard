@@ -8,7 +8,7 @@ st.set_page_config(page_title="Zonalyss Score Map", layout="wide")
 st.title("Zonalyss Investment Score Dashboard")
 
 # Sidebar selector
-property_type = st.sidebar.selectbox("Select property type", ["Apartment", "House", "Desk"])
+property_type = st.sidebar.selectbox("Select property type", ["Appartment", "House", "Desk"])
 
 # Mapping property type to data source and score column
 data_sources = {
