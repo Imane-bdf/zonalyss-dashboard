@@ -12,7 +12,7 @@ property_type = st.sidebar.selectbox("Select property type", ["Appartment", "Hou
 
 # Mapping property type to data source and score column
 data_sources = {
-    "Apartment": {
+    "Appartment": {
         "url": "https://raw.githubusercontent.com/Imane-bdf/zonalyss-dashboard/main/appartement_scores_simulated.csv",
         "score_column": "zonalyss_score_appartment"
     },
