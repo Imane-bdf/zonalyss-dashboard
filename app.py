@@ -14,7 +14,7 @@ property_type = st.sidebar.selectbox("Select property type", ["Appartment", "Hou
 data_sources = {
     "Apartment": {
         "url": "https://raw.githubusercontent.com/Imane-bdf/zonalyss-dashboard/main/appartement_scores_simulated.csv",
-        "score_column": "zonalyss_score_apartment"
+        "score_column": "zonalyss_score_appartment"
     },
     "House": {
         "url": "https://raw.githubusercontent.com/Imane-bdf/zonalyss-dashboard/main/house_scores_simulated.csv",
