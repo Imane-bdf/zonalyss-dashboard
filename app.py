@@ -42,7 +42,7 @@ The Zonalyss Score (0–100) is a custom investment indicator based on key varia
 
 # Show raw score table
 st.subheader("Commune Zonalyss Scores")
-st.dataframe(df[["commune", score_column]].sort_values(by=score_column, ascending=False))
+st.dataframe(df[["Commune", score_column]].sort_values(by=score_column, ascending=False))
 
 # Show top 5 communes
 st.markdown("### 🏆 Top 5 Communes to Invest In")
@@ -52,7 +52,7 @@ st.dataframe(top_zones[["commune", score_column]])
 # Show bar chart
 st.subheader(f"{property_type} Zonalyss Scores")
 df_sorted = df.sort_values(by=score_column, ascending=False)
-fig = px.bar(df_sorted, x="commune", y=score_column,
+fig = px.bar(df_sorted, x="Commune", y=score_column,
              title=f"{property_type} Zonalyss Scores by Commune",
              labels={score_column: "Zonalyss Score"})
 st.plotly_chart(fig)
@@ -62,7 +62,7 @@ geojson_url = "https://raw.githubusercontent.com/Imane-bdf/zonalyss-dashboard/ma
 geo_data = requests.get(geojson_url).json()
 
 # Simulate a mapping (you will replace this when using real commune names)
-df["commune_id"] = df["commune"].str.replace("Commune_", "").astype(int)
+df["commune_id"] = df["Commune"].str.replace("Commune_", "").astype(int)
 
 # Plot interactive map
 st.subheader(f"{property_type} Zonalyss Map")
