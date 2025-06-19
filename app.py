@@ -62,7 +62,7 @@ geojson_url = "https://raw.githubusercontent.com/Imane-bdf/zonalyss-dashboard/ma
 geo_data = requests.get(geojson_url).json()
 
 # Simulate a mapping (you will replace this when using real commune names)
-df["commune_id"] = df.index
+df["commune_id"] = df["commune"]
 
 # Plot interactive map
 st.subheader(f"{property_type} Zonalyss Map")
