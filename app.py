@@ -1,8 +1,3 @@
-
-Imane Charifa Beddiaf <beddiaf.imane.charifa@gmail.com>
-18:49 (il y a 0 minute)
-À moi
-
 import streamlit as st
 import pandas as pd
 import plotly.express as px
